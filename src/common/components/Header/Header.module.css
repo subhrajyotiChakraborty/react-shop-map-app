@@ -1,0 +1,9 @@
+.appName {
+  cursor: pointer;
+  display: inline;
+}
+
+.threeBarMenuIcon {
+  margin-right: 20px;
+  cursor: pointer;
+}

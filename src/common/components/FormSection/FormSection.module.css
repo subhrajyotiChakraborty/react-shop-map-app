@@ -1,0 +1,50 @@
+.formSectionWrapper {
+  margin-top: 57px;
+  width: 400px;
+}
+
+.crossBtnIcon {
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.form {
+  padding: 0px 20px;
+}
+
+.formLabel {
+  color: white;
+  margin: 0;
+}
+
+.formButtonSection {
+  text-align: right;
+}
+
+.storeImage {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 1px solid #ffffff;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.uploadImageText {
+  text-align: center;
+  cursor: pointer;
+  color: #17a2b8;
+  margin-top: 10px;
+}
+
+.uploadImageText:hover {
+  text-decoration: underline;
+}
+
+.loadingText {
+  color: #fff;
+  text-align: center;
+  margin-top: 60px;
+  font-weight: bold;
+}

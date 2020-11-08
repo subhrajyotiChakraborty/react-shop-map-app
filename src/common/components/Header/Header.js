@@ -21,7 +21,7 @@ class Header extends Component {
             onClick={() => this.props.history.push("/map")}
             className={classes.appName}
           >
-            AppName
+            ShopMapApp
           </p>
         </Navbar.Brand>
       </Navbar>

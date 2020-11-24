@@ -4,7 +4,7 @@ import GoogleMapReact from "google-map-react";
 
 import * as classes from "./Map.module.css";
 import * as actions from "../../store/actions";
-import ShopMarker from "./StoreMarker/StoreMarker";
+import ShopMarker from "./ShopMarker/ShopMarker";
 
 class Map extends Component {
   constructor(props) {
@@ -21,7 +21,6 @@ class Map extends Component {
 
   componentDidMount() {
     this.props.fetchShops();
-    this.props.fetchOrders();
   }
 
   render() {
@@ -33,7 +32,7 @@ class Map extends Component {
           defaultZoom={this.state.zoom}
         >
           {this.props.shops.map(
-            ({ id, store_name, lat, long, store_image }) => {
+            ({ id, store_name, lat, long, store_image, orders }) => {
               return (
                 <ShopMarker
                   key={id}
@@ -42,7 +41,7 @@ class Map extends Component {
                   shopName={store_name}
                   shopImage={store_image}
                   shopId={id}
-                  orders={this.props.orders}
+                  orders={orders}
                 />
               );
             }

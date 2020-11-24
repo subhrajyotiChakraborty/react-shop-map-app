@@ -1,14 +1,16 @@
 import axios from "../../axios/axios";
 import * as actionTypes from "./actionTypes";
 import { showToast } from "../../common/utils/toast";
+import { fetchShops } from "./shop";
 
 export const createOrder = (orderData) => {
   return async (dispatch) => {
     try {
       dispatch(createOrderStart());
-      const response = await axios.post("/orders.json", orderData);
+      const response = await axios.post("/order", orderData);
       console.log(response.data);
       dispatch(fetchOrders());
+      dispatch(fetchShops());
       showToast(true, "Order Created!!");
     } catch (error) {
       console.log(error);
@@ -41,15 +43,8 @@ export const fetchOrders = () => {
   return async (dispatch) => {
     try {
       dispatch(fetchOrdersStart());
-      const response = await axios.get("/orders.json");
-      const fetchedOrders = [];
-      for (const key in response.data) {
-        fetchedOrders.push({
-          ...response.data[key],
-          id: key,
-        });
-      }
-      dispatch(fetchOrdersSuccess(fetchedOrders));
+      const response = await axios.get("/orders");
+      dispatch(fetchOrdersSuccess(response.data && response.data.orders));
     } catch (error) {
       console.log(error);
       dispatch(fetchOrdersFail(error));

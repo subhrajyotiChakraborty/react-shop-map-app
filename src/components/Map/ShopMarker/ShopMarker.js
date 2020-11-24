@@ -1,12 +1,10 @@
 import React from "react";
 
-import * as classes from "./StoreMarker.module.css";
+import * as classes from "./ShopMarker.module.css";
 
 const ShopMarker = ({ shopName, shopImage, orders, shopId }) => {
   const calculateOrderCount = () => {
-    const orderCount = orders.filter((order) => order.store_id === shopId)
-      .length;
-    return orderCount;
+    return orders && orders.length ? orders.length : 0;
   };
 
   return (

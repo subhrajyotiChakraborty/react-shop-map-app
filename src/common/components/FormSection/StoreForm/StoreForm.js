@@ -39,6 +39,13 @@ class StoreForm extends Component {
       },
       function (error) {
         // Handle unsuccessful uploads
+        console.log(error);
+        showToast(false, error.message);
+        me.setState({
+          imageUploadInProgress: false,
+          selectedImage:
+            "https://image.flaticon.com/icons/png/512/1892/1892627.png",
+        });
       },
       function () {
         // Handle successful uploads on complete

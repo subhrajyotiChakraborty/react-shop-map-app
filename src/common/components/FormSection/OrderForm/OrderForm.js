@@ -17,12 +17,6 @@ class OrderForm extends Component {
     };
   }
 
-  componentDidMount() {
-    if (this.props.shops.length === 0) {
-      this.props.fetchShops();
-    }
-  }
-
   createOrderHandler = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -138,7 +132,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createOrder: (orderData) => dispatch(actions.createOrder(orderData)),
-    fetchShops: () => dispatch(actions.fetchShops()),
   };
 };
 

@@ -15,11 +15,12 @@ class Map extends Component {
         lat: 22.8956,
         lng: 88.4025,
       },
-      zoom: 11,
+      zoom: 10,
     };
   }
 
   componentDidMount() {
+    this.props.fetchCurrentLocation();
     this.props.fetchShops();
   }
 
@@ -28,7 +29,7 @@ class Map extends Component {
       <div className={classes.mapContainer}>
         <GoogleMapReact
           bootstrapURLKeys={process.env.REACT_APP_GOOGLE_MAP_API_KEY}
-          defaultCenter={this.state.center}
+          center={this.props.currentLocation || this.state.center}
           defaultZoom={this.state.zoom}
         >
           {this.props.shops.map(
@@ -58,6 +59,7 @@ const mapStateToProps = (state) => {
     error: state.shops.error,
     shops: state.shops.shops,
     orders: state.orders.orders,
+    currentLocation: state.location.center,
   };
 };
 
@@ -65,6 +67,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchShops: () => dispatch(actions.fetchShops()),
     fetchOrders: () => dispatch(actions.fetchOrders()),
+    fetchCurrentLocation: () => dispatch(actions.fetchLocation()),
   };
 };
 

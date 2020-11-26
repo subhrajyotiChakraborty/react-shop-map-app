@@ -28,7 +28,8 @@
   margin: 0 auto;
   border: 1px solid #ffffff;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
 }
 
 .uploadImageText {

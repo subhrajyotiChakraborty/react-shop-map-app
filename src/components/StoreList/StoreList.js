@@ -22,16 +22,18 @@ class StoreList extends Component {
               <th>Store Name</th>
               <th>Latitude</th>
               <th>Longitude</th>
+              <th>Order(s)</th>
             </tr>
           </thead>
           <tbody>
-            {this.props.shops.map(({ id, store_name, lat, long }) => {
+            {this.props.shops.map(({ id, store_name, lat, long, orders }) => {
               return (
                 <tr key={id}>
                   <td>{id}</td>
                   <td>{store_name}</td>
                   <td>{lat}</td>
                   <td>{long}</td>
+                  <td>{orders && orders.length}</td>
                 </tr>
               );
             })}

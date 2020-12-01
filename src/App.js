@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       isFormOpen: false,
       showStoreForm: false,
-      showSideBar: true,
+      showSideBar: false,
     };
   }
 
@@ -51,8 +51,15 @@ class App extends Component {
     });
   };
 
+  closeSidebar = () => {
+    this.setState(() => {
+      return {
+        showSideBar: false,
+      };
+    });
+  };
+
   render() {
-    console.log(this.state);
     return (
       <Fragment>
         <ToastContainer />
@@ -62,6 +69,7 @@ class App extends Component {
             <SidebarContent
               formSectionHandler={this.openFormSectionHandler}
               closeFormSectionHandler={this.closeFormSectionHandler}
+              closeSidebar={this.closeSidebar}
             />
           }
           docked={this.state.showSideBar}

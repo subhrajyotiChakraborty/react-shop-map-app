@@ -11,7 +11,10 @@ const SidebarContent = (props) => {
         <Button
           block
           variant="outline-info"
-          onClick={() => props.formSectionHandler(true)}
+          onClick={() => {
+            props.closeSidebar();
+            props.formSectionHandler(true);
+          }}
         >
           Create Store
         </Button>
@@ -22,6 +25,7 @@ const SidebarContent = (props) => {
           variant="outline-info"
           onClick={() => {
             props.closeFormSectionHandler();
+            props.closeSidebar();
             props.history.push("/stores");
           }}
         >
@@ -30,7 +34,10 @@ const SidebarContent = (props) => {
       </div>
       <div
         className={classes.sidebarButton}
-        onClick={() => props.formSectionHandler(false)}
+        onClick={() => {
+          props.closeSidebar();
+          props.formSectionHandler(false);
+        }}
       >
         <Button block variant="outline-info">
           Create Order
@@ -42,6 +49,7 @@ const SidebarContent = (props) => {
           variant="outline-info"
           onClick={() => {
             props.closeFormSectionHandler();
+            props.closeSidebar();
             props.history.push("/orders");
           }}
         >

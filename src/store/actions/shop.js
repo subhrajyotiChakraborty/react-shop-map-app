@@ -6,7 +6,7 @@ export const createShop = (shopData) => {
   return async (dispatch) => {
     try {
       dispatch(createShopStart());
-      const response = await axios.post("/shops.json", shopData);
+      const response = await axios.post("/shop", shopData);
       console.log(response.data);
       dispatch(fetchShops());
       showToast(true, "Shop Created!!");
@@ -41,15 +41,8 @@ export const fetchShops = () => {
   return async (dispatch) => {
     try {
       dispatch(fetchShopsStart());
-      const response = await axios.get("/shops.json");
-      const fetchedShops = [];
-      for (const key in response.data) {
-        fetchedShops.push({
-          ...response.data[key],
-          id: key,
-        });
-      }
-      dispatch(fetchShopsSuccess(fetchedShops));
+      const response = await axios.get("/shops");
+      dispatch(fetchShopsSuccess(response.data && response.data.shops));
     } catch (error) {
       console.log(error);
       dispatch(fetchShopsFail(error));

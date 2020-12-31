@@ -31,8 +31,8 @@ class OrderList extends Component {
                   return (
                     <tr key={id}>
                       <td>{id}</td>
-                      <td>{order_amount}</td>
                       <td>{order_number}</td>
+                      <td>{order_amount}</td>
                       <td>{store_id}</td>
                     </tr>
                   );
